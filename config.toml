@@ -6,7 +6,7 @@ title = "Esports Rankings"
 # Parameters
 [params]
     subtitle = "Using Bookmakers to Rank Esports Teams"
-    dateFmt = "02.01.2006 15:04"
+    dateFmt = "2006.01.02 15:04"
 
 # Header
 [menu]
