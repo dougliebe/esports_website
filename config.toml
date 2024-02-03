@@ -7,6 +7,7 @@ title = "Esports Rankings"
 [params]
     subtitle = "Using Bookmakers to Rank Esports Teams"
     dateFmt = "2006.01.02 15:04"
+    titleCaseStyle = "none"
 
 # Header
 [menu]
