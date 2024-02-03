@@ -9,17 +9,26 @@
 		{{ end }}
 
 		<ul>
-		    {{ $filteredPages := where .Paginator.Pages "Section" "!=" "post" }}
-		    {{ range $filteredPages }}
-		    <li>
-		        <div class="post-title">
-		            {{ if eq $listtitle "Posts" }}
-		                {{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-		            {{ else }}
-		                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-		            {{ end }}
-		        </div>
-		    </li>
+		    {{ $sections := .Sections }}
+		    {{ range $sections }}
+		        {{ if ne .Title "Posts" }} <!-- Exclude the 'posts' section -->
+		            <li>
+		                <h2>{{ .Title }}</h2>
+		                <ul>
+		                    {{ range .Pages }}
+		                    <li>
+		                        <div class="post-title">
+		                            {{ if eq $listtitle "Posts" }}
+		                                {{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		                            {{ else }}
+		                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		                            {{ end }}
+		                        </div>
+		                    </li>
+		                    {{ end }}
+		                </ul>
+		            </li>
+		        {{ end }}
 		    {{ end }}
 		</ul>
 	</main>
